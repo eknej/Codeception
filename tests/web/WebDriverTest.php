@@ -803,6 +803,16 @@ class WebDriverTest extends TestsForBrowsers
         $this->module->seeInField('foo', 'bar baz');
     }
 
+    /**
+    * @Issue 4726
+    */
+    public function testClearField()
+    {
+        $this->module->fillField('#username', 'username');
+        $this->module->clearField('#username');
+        $this->module->dontSee('username');        
+    }
+        
     public function testClickHashLink()
     {
         $this->module->amOnPage('/form/anchor');
